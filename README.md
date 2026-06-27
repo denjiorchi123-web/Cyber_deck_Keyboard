@@ -12,6 +12,38 @@ Below is the layout configuration diagram of the keyboard keys:
 
 ---
 
+## Repository Files & Purpose
+
+Here is an explanation of the files in this repository and what they are used for:
+
+### 1. `code.py` (Main Firmware)
+- **Purpose**: This is the main program file that runs continuously on your keyboard when it is powered on.
+- **Key Features**:
+  - Sets up the 5x10 key matrix pins.
+  - Implements the dual-layer keymap (Base Layer and Fn Layer).
+  - Handles the custom **Analog Joystick** code: reads X/Y potentiometers to control mouse cursor movement, manages mouse clicks (left click/right click), and handles web page scrolling when the `Fn` layer is active.
+  - Handles the custom dual-action **Volume & Screen Brightness** keys.
+  - Houses the macro shortcuts for **Microphone Mute** (`Ctrl+Shift+M`) and **Webcam Toggle** (`Alt+V`).
+
+### 2. `boot.py` (Boot Setup & Lockout)
+- **Purpose**: Runs once during the initial startup (boot phase) of the Pico, before the main `code.py` loads.
+- **Key Features**:
+  - Configures the USB interfaces, enabling standard Keyboard, Mouse, and Consumer Control (media keys) HID devices.
+  - **USB Write Protection Lockout**: Automatically hides/disables the `CIRCUITPY` USB drive to prevent anyone from reading or editing your code when they plug it in.
+  - **Developer Bypass Switch**: Checks if the joystick click button (GP28) is held down during startup. If pressed, it keeps the USB drive visible so you can edit the files.
+
+### 3. `test_matrix.py` (Matrix Diagnostic Tool)
+- **Purpose**: A diagnostic script used to test the physical wiring of the key matrix.
+- **Key Features**:
+  - Sequentially scans the column and row pins.
+  - Prints a report to the serial console showing which row/column junctions are electrically connected.
+  - Used to find broken switches, backwards diodes, or short circuits before loading the full KMK firmware.
+
+### 4. `KeyboardLayout.jpeg` (Layout Diagram)
+- **Purpose**: Reference image showing the physical keys and secondary layer labels.
+
+---
+
 ## Key Mappings
 
 ### Base Layer (Normal Typing)
