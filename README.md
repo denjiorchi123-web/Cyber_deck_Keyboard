@@ -43,11 +43,35 @@ To access the secondary layout, **hold down the `Fn` key** (7th key in the botto
 
 ---
 
-## Hardware Configuration (Pico Pins)
+## Hardware Specifications & Wiring Guide
+
+### 1. Key Matrix & Diodes
+- **Diodes Count**: **50 Diodes** (one per key switch to prevent ghosting).
+- **Diode Model**: **1N4148** (Standard switching diode).
+- **Diode Orientation**: **COL2ROW** (Cathode / black banded end faces the column side).
+- **Matrix Wiring Scheme**:
+  ```text
+  Row wire -> Switch Pin 1
+  Switch Pin 2 -> Diode Anode (unbanded end)
+  Diode Cathode (banded end) -> Column wire
+  ```
+
+### 2. Analog Joystick Module
+- **Module Model**: PS2-style dual-axis analog joystick module.
+- **Specifications**:
+  - Dual 10kΩ potentiometers for X and Y analog control.
+  - Integrated momentary tactile switch (Normally Open) for click button.
+  - Operating voltage: 3.3V to 5V.
+- **Wiring Mappings**:
+  - `VCC` $\rightarrow$ `3.3V` (Pico 3V3)
+  - `GND` $\rightarrow$ `GND` (Pico GND)
+  - `VRx` $\rightarrow$ `GP26` (Pico ADC0)
+  - `VRy` $\rightarrow$ `GP27` (Pico ADC1)
+  - `SW` (Click) $\rightarrow$ `GP28` (Pico Digital Input with internal pull-up enabled)
+
+### 3. Key Matrix Pins
 - **Rows**: `GP0`, `GP1`, `GP2`, `GP3`, `GP4`
 - **Columns**: `GP6`, `GP7`, `GP8`, `GP9`, `GP10`, `GP11`, `GP12`, `GP13`, `GP14`, `GP15` (GP5 skipped)
-- **Joystick X/Y**: `GP26` (VRx), `GP27` (VRy)
-- **Joystick Click (SW)**: `GP28`
 
 ---
 
