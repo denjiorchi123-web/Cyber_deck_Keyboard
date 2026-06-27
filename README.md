@@ -44,7 +44,7 @@ Here is an explanation of the files in this repository and what they are used fo
 
 ---
 
-## Key Mappings
+## Keyboard Layout & Mappings
 
 ### Base Layer (Normal Typing)
 Standard 50-key matrix layout mapping. Normal keys function as expected.
@@ -68,10 +68,23 @@ To access the secondary layout, **hold down the `Fn` key** (7th key in the botto
 | **Tab** | Hold `Fn` + press `X` | Sends `Tab` |
 | **Escape** | Hold `Fn` + press `Caps` | Sends `Esc` |
 | **Print Screen** | Hold `Fn` + press `B` | Takes a screenshot (sends Print Screen) |
-| **Joystick Mouse Movement** | Move joystick | Moves the mouse cursor very slowly and precisely |
-| **Joystick Mouse Scroll** | Hold `Fn` + move joystick | Scrolls vertically (up/down) and horizontally (left/right) |
-| **Left Click** | Click/press down joystick | Left click |
-| **Right Click** | Hold `Fn` + click/press down joystick | Right click |
+
+---
+
+## Analog Joystick Controls
+
+The custom analog joystick acts as a fully integrated mouse interface. It has two modes of operation depending on the state of the `Fn` key:
+
+### 1. Mouse Cursor Mode (Default)
+When the `Fn` key is **not** pressed, the joystick controls normal mouse movements:
+- **Move Cursor**: Move the joystick in any direction to move the mouse pointer. The movements are highly precise and optimized for slow, accurate control.
+- **Left Click**: Press/click down on the joystick module button.
+
+### 2. Page Scrolling & Right Click Mode (Hold Fn)
+When you **hold down the `Fn` key**, the joystick switches functions:
+- **Scroll Up/Down**: Push the joystick **Up** or **Down** to scroll web pages or documents vertically.
+- **Scroll Left/Right**: Push the joystick **Left** or **Right** to scroll horizontally.
+- **Right Click**: Press/click down on the joystick module button while holding the `Fn` key.
 
 ---
 
