@@ -1,25 +1,18 @@
 # Cyberdeck Keyboard Firmware
 
-This repository contains the KMK-based custom firmware for the Cyberdeck Keyboard, built on a Raspberry Pi Pico (RP2040).
-
-## Features
-- **KMK Firmware**: Keyboard layout configuration using CircuitPython.
-- **Custom Analog Joystick**: Direct analog joystick integration for high-precision mouse cursor movement, left/right clicks, and analog scrolling.
-- **Dual-Function Media Keys**: Context-aware Volume and Brightness adjustment.
-- **Application Toggles**: Dedicated microphone mute and webcam toggles.
-- **USB Write Protection Lockout**: Built-in developer bypass switch to hide/reveal the USB drive.
+This repository contains the custom firmware for the Cyberdeck Keyboard built on a Raspberry Pi Pico (RP2040) using the [KMK Firmware](https://github.com/KMKfw/kmk_firmware) library.
 
 ---
 
-## Hardware Configuration (Pico Pins)
-- **Rows**: `GP0`, `GP1`, `GP2`, `GP3`, `GP4`
-- **Columns**: `GP6`, `GP7`, `GP8`, `GP9`, `GP10`, `GP11`, `GP12`, `GP13`, `GP14`, `GP15` (GP5 skipped)
-- **Joystick X/Y**: `GP26` (VRx), `GP27` (VRy)
-- **Joystick Click (SW)**: `GP28`
+## Keyboard Layout
+
+Below is the layout configuration diagram of the keyboard keys:
+
+![Keyboard Layout](KeyboardLayout.jpeg)
 
 ---
 
-## Keyboard Layout & Key Mappings
+## Key Mappings
 
 ### Base Layer (Normal Typing)
 Standard 50-key matrix layout mapping. Normal keys function as expected.
@@ -50,6 +43,14 @@ To access the secondary layout, **hold down the `Fn` key** (7th key in the botto
 
 ---
 
+## Hardware Configuration (Pico Pins)
+- **Rows**: `GP0`, `GP1`, `GP2`, `GP3`, `GP4`
+- **Columns**: `GP6`, `GP7`, `GP8`, `GP9`, `GP10`, `GP11`, `GP12`, `GP13`, `GP14`, `GP15` (GP5 skipped)
+- **Joystick X/Y**: `GP26` (VRx), `GP27` (VRy)
+- **Joystick Click (SW)**: `GP28`
+
+---
+
 ## Installation & Configuration Guide
 
 ### Step 1: Install CircuitPython on your Pico
@@ -57,7 +58,7 @@ To access the secondary layout, **hold down the `Fn` key** (7th key in the botto
 2. Unplug your Pico's USB cable.
 3. Hold down the **BOOTSEL** button on the Pico.
 4. While holding the button, plug the USB cable back into your computer.
-5. A drive named **RPI-RP2** will appear. Drag and drop the downloaded `.uf2` file onto it.
+5. Drag and drop the downloaded `.uf2` file onto the **RPI-RP2** drive.
 6. The Pico will reboot and mount as a new drive named **CIRCUITPY**.
 
 ### Step 2: Copy Firmware and Configuration Files
